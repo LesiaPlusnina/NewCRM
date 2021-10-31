@@ -12,6 +12,5 @@ class CustomerModelForm(forms.ModelForm):
             'email',
             'username',
             'first_name',
-            'middle_name',
             'last_name'
         )

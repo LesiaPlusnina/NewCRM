@@ -22,7 +22,7 @@ class CustomerCreateView(OrganisorAndLoginRequiredMixin, generic.CreateView):
     form_class = CustomerModelForm
 
     def get_success_url(self):
-        return reverse("customers:customers-list")
+        return reverse("customers:customer-list")
 
     def form_valid(self, form):
         user = form.save(commit=False)
@@ -45,7 +45,7 @@ class CustomerCreateView(OrganisorAndLoginRequiredMixin, generic.CreateView):
 
 class CustomerDetailView(OrganisorAndLoginRequiredMixin, generic.DetailView):
     template_name = "customers/customer_detail.html"
-    context_object_name = "customers"
+    context_object_name = "customer"
 
     def get_queryset(self):
         organisation = self.request.user.userprofile
@@ -66,10 +66,10 @@ class CustomerUpdateView(OrganisorAndLoginRequiredMixin, generic.UpdateView):
 
 class CustomerDeleteView(OrganisorAndLoginRequiredMixin, generic.DeleteView):
     template_name = "customers/customer_delete.html"
-    context_object_name = "customers"
+    context_object_name = "customer"
 
     def get_success_url(self):
-        return reverse("customers:customers-list")
+        return reverse("customers:customer-list")
 
     def get_queryset(self):
         organisation = self.request.user.userprofile
